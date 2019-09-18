@@ -3,12 +3,13 @@ import { css, cx } from "emotion"
 
 const classNames = {
   navbarInverse: css`
-      background-color: transparent;
-      .navbar-brand {
-        color: #333;
-        font-size: 24px;
-        margin-top: 40px;
-      `,
+    background-color: transparent;
+    .navbar-brand {
+      color: #333;
+      font-size: 24px;
+      margin-top: 40px;
+    }
+  `,
   containerFluid: css`
     padding-left: 50px;
   `,

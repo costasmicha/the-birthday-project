@@ -14,6 +14,7 @@ import {
 import AppActions from "../actions/AppActions"
 import AddConnection from "./AddConnection"
 import UpdateParent from "./UpdateParent"
+import UploadImage from "./UploadImage"
 import ConnectionListItem from "./ConnectionListItem"
 import NamedayListGroup from "./NamedayListGroup"
 import update from "react-addons-update"
@@ -151,11 +152,15 @@ class ParentListItem extends Component {
         <Col xs={6} md={4} lg={3}>
           <Thumbnail>
             <div className="profile-img-box">
-              <img
+              <div className="profile-img">
+                <input type="file" className="file-input" />
+                {/* <input type="submit" /> */}
+              </div>
+              {/* <img
                 src="images/avatar.png"
                 alt="Avatar"
                 className="profile-img"
-              />
+              /> */}
             </div>
             <div className="profile-content-box">
               <div className="profile-content-name">

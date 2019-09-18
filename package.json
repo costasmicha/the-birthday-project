@@ -18,6 +18,7 @@
     "ramda": "^0.25.0",
     "react": "15.4.2",
     "react-addons-update": "15.4.2",
+    "react-avatar-editor": "^11.0.7",
     "react-bootstrap": "^0.30.10",
     "react-datepicker": "^0.46.0",
     "react-dom": "15.4.2",
