@@ -1,11 +1,27 @@
 import React, { Component } from "react"
 
-class Upload extends Component {
-  constructor(props) {
-    super(props)
+class UploadImage extends Component {
+  uploadWidget = () => {
+    window.cloudinary.openUploadWidget(
+      {
+        cloud_name: "bdayv",
+        upload_preset: "eahzkyty",
+        // multiple: false,
+        showAdvancedOptions: false,
+      },
+      function(error, result) {
+        console.log(result)
+      }
+    )
   }
 
   render() {
-    return <p>Upload</p>
+    return (
+      <div id="photo">
+        <button onClick={this.uploadWidget}>Upload Photo</button>
+      </div>
+    )
   }
 }
+
+export default UploadImage

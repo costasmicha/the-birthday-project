@@ -153,14 +153,9 @@ class ParentListItem extends Component {
           <Thumbnail>
             <div className="profile-img-box">
               <div className="profile-img">
-                <input type="file" className="file-input" />
-                {/* <input type="submit" /> */}
+                <UploadImage />
+                {/* <input type="file" className="file-input" /> */}
               </div>
-              {/* <img
-                src="images/avatar.png"
-                alt="Avatar"
-                className="profile-img"
-              /> */}
             </div>
             <div className="profile-content-box">
               <div className="profile-content-name">
