@@ -1,5 +1,6 @@
 import React from "react"
 import { css, cx } from "emotion"
+import { useFireBaseContext } from "providers/Firebase"
 
 const classNames = {
   navbarInverse: css`
@@ -10,20 +11,33 @@ const classNames = {
         margin-top: 40px;
       `,
   containerFluid: css`
-    padding-left: 50px;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+  `,
+  signOut: css`
+    align-self: flex-end;
+    cursor: pointer;
   `,
 }
 
-const NavigationBar = () => (
-  <nav className={cx([classNames.navbarInverse, "navbar"])}>
-    <div className={classNames.containerFluid}>
-      <div className="navbar-header">
-        <a className="navbar-brand" href="#brand">
-          The BirthDay Project
-        </a>
+function NavigationBar() {
+  const fire = useFireBaseContext()
+  const u = fire.auth.currentUser && fire.auth.currentUser.email
+  return (
+    <nav className={cx([classNames.navbarInverse, "navbar"])}>
+      <div className={classNames.containerFluid}>
+        <div className="navbar-header">
+          <a className="navbar-brand" href="#brand">
+            The BirthDay Project
+          </a>
+        </div>
+        <div className={classNames.signOut}>
+          <h4 onClick={fire.doSignOut}>Sign out</h4>
+        </div>
       </div>
-    </div>
-  </nav>
-)
+    </nav>
+  )
+}
 
 export default NavigationBar
