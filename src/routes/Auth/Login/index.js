@@ -84,6 +84,7 @@ const Login = () => {
               Login
             </Button>
           </div>
+          <div>Forgot Password?</div>
         </form>
       </div>
     </div>

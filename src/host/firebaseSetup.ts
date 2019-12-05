@@ -39,6 +39,7 @@ export class Frbs {
       }
     })
   }
+
   // *** Auth API ***
   doCreateUserWithEmailAndPassword = (email: string, password: string) => {
     this.auth

@@ -1,42 +1,33 @@
 import React from "react"
-import { css, cx } from "emotion"
 import { useFireBaseContext } from "providers/Firebase"
-
-const classNames = {
-  navbarInverse: css`
-      background-color: transparent;
-      .navbar-brand {
-        color: #333;
-        font-size: 24px;
-        margin-top: 40px;
-      `,
-  containerFluid: css`
-    padding: 0 50px;
-    display: flex;
-    justify-content: space-between;
-  `,
-  signOut: css`
-    align-self: flex-end;
-    cursor: pointer;
-  `,
-}
+import { Navbar, Nav, NavDropdown, MenuItem } from "react-bootstrap"
 
 function NavigationBar() {
   const fire = useFireBaseContext()
   const u = fire.auth.currentUser && fire.auth.currentUser.email
   return (
-    <nav className={cx([classNames.navbarInverse, "navbar"])}>
-      <div className={classNames.containerFluid}>
-        <div className="navbar-header">
-          <a className="navbar-brand" href="#brand">
-            The BirthDay Project
-          </a>
-        </div>
-        <div className={classNames.signOut}>
-          <h4 onClick={fire.doSignOut}>Sign out</h4>
-        </div>
-      </div>
-    </nav>
+    <div>
+      <Navbar>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <a href="#brand">Crack the party!</a>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse>
+          <Nav pullRight>
+            <NavDropdown eventKey={1} title="About me" id="basic-nav-dropdown">
+              <MenuItem eventKey={1.1}>Edit Profile</MenuItem>
+              <MenuItem eventKey={1.2}>Settings</MenuItem>
+              <MenuItem divider />
+              <MenuItem eventKey={1.3} onClick={fire.doSignOut}>
+                Sign out
+              </MenuItem>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    </div>
   )
 }
 
