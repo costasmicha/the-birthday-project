@@ -11,6 +11,7 @@ import Nameday from "./Nameday"
 import DatePicker from "react-datepicker"
 import { validation } from "../utils/validation"
 import "react-datepicker/dist/react-datepicker.css"
+import { FireBaseContext } from "providers/Firebase"
 
 class AddParent extends Component {
   constructor() {
@@ -40,6 +41,7 @@ class AddParent extends Component {
       nameChange: "", // variable passed to the 'Nameday' component that updates every time the firstName changes
     }
   }
+  static contextType = FireBaseContext
 
   // handler to control date change of DatePicker
   handleChange = selected => this.setState({ date: selected })
@@ -54,9 +56,11 @@ class AddParent extends Component {
 
   handleSubmit = e => {
     // sets the birthday date format to a uniform type of DD/MM/YYYY
+    const userId = this.context.auth.W
     const newBirthday = this.state.date
     const validatedValues = validation({
       parent: this.state.newParent,
+      userId,
       firstName: this.firstName.value,
       lastName: this.lastName.value,
       phone: this.phone.value,
@@ -69,8 +73,9 @@ class AddParent extends Component {
     const valid_parent = validatedValues.parent_updated
 
     if (valid_parent !== undefined) {
-      AppActions.addParent(valid_parent)
-      this.props.callbackParent()
+      this.context.db.collection("contacts").add(valid_parent)
+      // AppActions.addParent(valid_parent)
+      // this.props.callbackParent()
     } else {
       this.setState({ validation_state: invalid })
     }

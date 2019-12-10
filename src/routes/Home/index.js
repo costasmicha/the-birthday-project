@@ -62,8 +62,10 @@ function filterData(searchField, parents) {
 }
 
 class Home extends Component {
+  static contextType = FireBaseContext
   constructor() {
     super()
+    // this.ref = this.context.collection("contacts")
     this.state = {
       openAdd: false,
       searchField: "",
@@ -71,7 +73,6 @@ class Home extends Component {
       error: "",
     }
   }
-  static contextType = FireBaseContext
 
   UNSAFE_componentWillMount() {
     AppStore.addChangeListener(this.onChange)
@@ -79,6 +80,10 @@ class Home extends Component {
 
   componentDidMount() {
     AppActions.getParents()
+    // this.getContacts = this.context
+    console.log(
+      this.context.db.collection("contacts").doc("f25q9NvpPm7VTaEHDAgd")
+    )
     this.unsubscribe = this.context.onAuthUserListener(
       u => {
         //gdhdgd

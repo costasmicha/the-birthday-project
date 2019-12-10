@@ -7,6 +7,7 @@ export const validation = ({
   newNameday_id = "",
   newNamedate = "",
   newBirthday = "",
+  userId = "",
 }) => {
   const pattern_name = /^\s+$/
   const pattern_phone = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/
@@ -116,6 +117,7 @@ export const validation = ({
       phone: phone,
       email: email,
       birthday: newBirthday,
+      userId,
       nameday: {
         nameday_id: newNameday_id,
         date: newNamedate,
