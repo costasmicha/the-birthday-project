@@ -6,7 +6,7 @@ const Parents = ({ parents }) => {
 
   if (parents) {
     parentListItems = parents.map(parent => {
-      return <ParentListItem key={parent._id.$oid} parent={parent} />
+      return <ParentListItem key={parent.id} parent={parent} />
     })
   }
   return <div>{parentListItems}</div>

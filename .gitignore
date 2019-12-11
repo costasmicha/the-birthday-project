@@ -21,3 +21,6 @@ src/secrets.js
 
 #vscode
 .vscode
+
+#history
+.history

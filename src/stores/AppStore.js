@@ -35,12 +35,12 @@ class AppStoreClass extends EventEmitter {
   }
 
   updateParent(id, parent) {
-    var index = this.parents.findIndex(x => x._id.$oid === id)
+    var index = this.parents.findIndex(x => x.id === id)
     this.parents.splice(index, 1, parent)
   }
 
   deleteParent(id) {
-    var index = this.parents.findIndex(x => x._id.$oid === id)
+    var index = this.parents.findIndex(x => x.id === id)
     this.parents.splice(index, 1)
   }
 

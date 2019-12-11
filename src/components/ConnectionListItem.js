@@ -53,7 +53,7 @@ class ConnectionListItem extends Component {
     newParent.connections = [
       update(parent.connections[index], { $merge: newConnection }),
     ]
-    AppActions.updateParent(parent._id.$oid, newParent)
+    AppActions.updateParent(parent.id, newParent)
   }
 
   render() {
@@ -136,7 +136,7 @@ class ConnectionListItem extends Component {
               <Collapse in={this.state.openEdit} mountOnEnter={true}>
                 <div>
                   <EditConnection
-                    id={this.props.parent._id.$oid}
+                    id={this.props.parent.id}
                     parent={this.props.parent}
                     index={this.props.index}
                     callbackParent={this.handleEditClick.bind(this)}

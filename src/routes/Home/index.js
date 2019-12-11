@@ -79,11 +79,39 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    AppActions.getParents()
+    // AppActions.getParents()
     // this.getContacts = this.context
-    console.log(
-      this.context.db.collection("contacts").doc("f25q9NvpPm7VTaEHDAgd")
-    )
+    const contacts = this.context.db
+      .collection("contacts")
+      .where("userId", "==", "6XLzALR7LSeGJ1vxyrgnwvMVKGy1")
+    // .doc("f25q9NvpPm7VTaEHDAgd")
+
+    contacts
+      .get()
+      .then(qs => {
+        // if (doc.exists) {
+        //   // this.setState(s => ({
+        //   //   ...s,
+        //   //   parents: doc.data(),
+        //   // }))
+        //   console.log(">>>", doc.exists, "Document data:", doc.data())
+        // } else {
+        //   // doc.data() will be undefined in this case
+        //   console.log("No such document!")
+        // }
+        const docs = qs.docs.map(doc => {
+          console.log(">>>", doc.exists, "Document data:", doc.data())
+          return { id: doc.id, ...doc.data() }
+        })
+        console.log("docs", docs)
+        this.setState(s => ({
+          ...s,
+          parents: docs,
+        }))
+      })
+      .catch(function(error) {
+        console.log("Error getting document:", error)
+      })
     this.unsubscribe = this.context.onAuthUserListener(
       u => {
         //gdhdgd

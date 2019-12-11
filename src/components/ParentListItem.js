@@ -84,7 +84,7 @@ class ParentListItem extends Component {
       },
     }
     AppActions.updateParent(
-      this.props.parent._id.$oid,
+      this.props.parent.id,
       update(this.props.parent, { $merge: newParent })
     )
   }
@@ -102,14 +102,14 @@ class ParentListItem extends Component {
             connection={connection}
             index={parent.connections.indexOf(connection)}
             parent={parent}
-            id={parent._id.$oid}
+            id={parent.id}
             callbackParent={this.onChildChanged}
           />
         )
       })
     } else {
       connectionListItems = (
-        <ConnectionListItem parent={parent} id={parent._id.$oid} />
+        <ConnectionListItem parent={parent} id={parent.id} />
       )
     }
 
@@ -175,7 +175,7 @@ class ParentListItem extends Component {
                 <p>
                   <Button
                     className="custom"
-                    onClick={this.handleDeleteClick(parent._id.$oid)}
+                    onClick={this.handleDeleteClick(parent.id)}
                   >
                     {" "}
                     <Glyphicon glyph="glyphicon glyphicon-remove" />{" "}
@@ -260,7 +260,7 @@ class ParentListItem extends Component {
         >
           <Modal.Body className="add-modal">
             <UpdateParent
-              id={parent._id.$oid}
+              id={parent.id}
               parent={parent}
               callbackParent={this.onParentChanged}
             />
@@ -270,7 +270,7 @@ class ParentListItem extends Component {
         <Modal show={this.state.openCon} onHide={this.closeCon} keyboard={true}>
           <Modal.Body className="add-modal">
             <AddConnection
-              id={parent._id.$oid}
+              id={parent.id}
               parent={parent}
               callbackParent={this.onChildChanged}
             />
