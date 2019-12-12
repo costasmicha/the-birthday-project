@@ -2,7 +2,11 @@ import AppDispatcher from "../dispatcher/AppDispatcher"
 import AppConstants from "../constants/AppConstants"
 import ParentsAPI from "../utils/ParentsAPI"
 import NamesAPI from "../utils/NamesAPI"
-import secrets from "../secrets"
+// import secrets from "../secrets"
+
+const secrets = {
+  token: "Sfgdsd",
+}
 
 export default {
   getParents: () => {

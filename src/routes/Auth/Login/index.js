@@ -3,7 +3,7 @@ import { css } from "emotion"
 
 //
 import { Button, FormControl } from "react-bootstrap"
-import { useFireBaseContext } from "providers/Firebase"
+import { useFirebaseContext } from "providers/Firebase"
 
 const styles = {
   container: css`
@@ -40,7 +40,7 @@ const initialValues = {
 
 const Login = () => {
   const [values, setValues] = useState(initialValues)
-  const fire = useFireBaseContext()
+  const fire = useFirebaseContext()
   const onChange = useCallback(
     evt => {
       const {

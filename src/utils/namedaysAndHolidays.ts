@@ -1,15 +1,17 @@
-import React from "react"
-
-const Easter = year => {
-  const padout = number => {
-    if (number < 10) {
-      return "0" + number
-    } else {
-      return number
-    }
+function padout(n: number): string {
+  if (n < 10) {
+    return "0" + n
+  } else {
+    return n + ""
   }
+}
 
-  // let year = this.props.year
+/**
+ *
+ * @param year Year
+ * @returns the date Easter is the given year in format "YYYY-MM-DD" ?
+ */
+export function easter(year: number) {
   let c = Math.floor(year / 100)
   let n = year - 19 * Math.floor(year / 19)
   let k = Math.floor((c - 17) / 25)
@@ -28,7 +30,5 @@ const Easter = year => {
   let m = 3 + Math.floor((l + 40) / 44)
   let d = l + 28 - 31 * Math.floor(m / 4)
 
-  return <div>{year + "-" + padout(m) + "-" + padout(d)}</div>
+  return year + "-" + padout(m) + "-" + padout(d)
 }
-
-export default Easter

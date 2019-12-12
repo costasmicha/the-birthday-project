@@ -11,13 +11,16 @@ const config = {
   messagingSenderId: "97098174516",
   appId: "1:97098174516:web:5ad5377529da8f77747a61",
 }
+
+firebase.initializeApp(config)
+
 export type AuthStateListenerNext = (a: firebase.User) => void
 export type AuthStateListenerFallback = () => void
+
 export class Frbs {
-  auth: firebase.auth.Auth
+  private auth: firebase.auth.Auth
   db: firebase.firestore.Firestore
   constructor() {
-    firebase.initializeApp(config)
     this.auth = firebase.auth()
     this.db = firebase.firestore()
 

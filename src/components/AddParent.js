@@ -6,7 +6,6 @@ import {
   InputGroup,
   FormControl,
 } from "react-bootstrap"
-import AppActions from "../actions/AppActions"
 import Nameday from "./Nameday"
 import DatePicker from "react-datepicker"
 import { validation } from "../utils/validation"

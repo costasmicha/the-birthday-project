@@ -1,11 +1,11 @@
 import React, { Component } from "react"
+import moment from "moment"
+import DatePicker from "react-datepicker"
+import { FormControl } from "react-bootstrap"
+import "react-datepicker/dist/react-datepicker.css"
+
 import AppActions from "../actions/AppActions"
 import AppStore from "../stores/AppStore"
-import { FormControl } from "react-bootstrap"
-import DatePicker from "react-datepicker"
-import Easter from "./Easter"
-import moment from "moment"
-import "react-datepicker/dist/react-datepicker.css"
 
 const datePickerComp = (date, handleChange, handleOnBlur, now) => (
   <DatePicker
@@ -105,7 +105,8 @@ class Nameday extends Component {
     let easterDates = []
     let option
     let options
-    let now = moment().get("year")
+    // let now = moment().get("year")
+    let currentYear = moment().get("year")
 
     // checks if there is an existing name
     if (firstName !== "") {
